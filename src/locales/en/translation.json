@@ -35,28 +35,88 @@
         "see_more": "You can see more of my work on my",
         "github": "GitHub",
         "source_code": "Source code",
+        "view_more": "View more",
         "items": {
             "keepassux": {
                 "name": "KeepassUX",
-                "description": "Password manager built using the open-source KeePass library"
+                "description": "Password manager built using the open-source KeePass library",
+                "detail": {
+                    "overview": "KeepassUX is a Flutter mobile app that brings the KeePass password-management ecosystem to a clean, modern interface. It works directly with the KDBX format used by KeePass, so existing databases can be opened and managed without switching ecosystems, all while keeping security as the top priority.",
+                    "features": [
+                        "Open, create, and manage KDBX password databases",
+                        "Full entry and group management with drag-and-drop organization",
+                        "Recycle bin with soft delete, restore, and permanent delete",
+                        "Biometric unlock and encrypted local storage",
+                        "Built-in password generator with strength analysis",
+                        "Screenshot blocking for extra privacy",
+                        "Light and dark themes, with English and Spanish localization"
+                    ]
+                }
             },
             "portfolio": {
                 "name": "Portfolio",
-                "description": "The current portfolio. You can explore the code in more detail here"
+                "description": "The current portfolio. You can explore the code in more detail here",
+                "detail": {
+                    "overview": "This portfolio itself, built to present my work with a modern, animated interface. It's a fully responsive single-page site with smooth section transitions, a starry animated background, and support for both English and Spanish.",
+                    "features": [
+                        "Animated sections and transitions powered by Framer Motion",
+                        "Fully responsive layout for mobile and desktop",
+                        "English/Spanish localization with i18next",
+                        "Contact form integrated with EmailJS",
+                        "Component-driven architecture built with React and Tailwind CSS"
+                    ]
+                }
             },
             "ugc_database": {
                 "name": "UGC Database",
-                "description": "Platform that helps agencies find and hire content creators for advertising through advanced search and filtering."
+                "description": "Platform that helps agencies find and hire content creators for advertising through advanced search and filtering.",
+                "detail": {
+                    "overview": "An internal platform built for advertising agencies to discover, vet, and hire user-generated-content creators for their campaigns. It centralizes creator sourcing that would otherwise be scattered across spreadsheets and social media into a single searchable database.",
+                    "features": [
+                        "Advanced creator search with filters by niche, location, and engagement",
+                        "Centralized creator profile database",
+                        "Campaign and content brief management",
+                        "Messaging and collaboration workflow between agencies and creators",
+                        "Admin dashboard with usage analytics"
+                    ]
+                }
             },
             "berrly": {
                 "name": "Berrly",
-                "description": "Management system for clubs, associations, and foundations, including event organization and ticket management"
+                "description": "Management system for clubs, associations, and foundations, including event organization and ticket management",
+                "detail": {
+                    "overview": "Berrly is a cloud-based management platform used by clubs, associations, and foundations to run their day-to-day operations. It's used by over 500,000 people every day, combining CRM and ERP style tools for member management, communication, billing, and events. I worked on the mobile app that lets members stay connected on the go.",
+                    "features": [
+                        "GDPR-compliant member database with smart tagging and segmentation",
+                        "Event organization with real-time attendance tracking (Berrly Scan)",
+                        "Mass communications via email, SMS, and push notifications",
+                        "Recurring billing with SEPA file generation for banks",
+                        "Member mobile app with digital membership cards",
+                        "Open API for third-party integrations"
+                    ]
+                }
             },
             "bovidata": {
                 "name": "Bovidata",
-                "description": "Livestock management system with features for health tracking, inventory management, expense tracking, and more"
+                "description": "Livestock management system with features for health tracking, inventory management, expense tracking, and more",
+                "detail": {
+                    "overview": "Bovidata applies data science to livestock farming, giving farmers a practical way to manage their herds from a mobile app. It's available on iOS and Android and is used to keep detailed, centralized records that would otherwise live in scattered notebooks and spreadsheets.",
+                    "features": [
+                        "Animal records including age, weight, breed, and health history",
+                        "Vaccination and treatment scheduling with reminders",
+                        "Real-time statistics and graphs on weight and growth",
+                        "Centralized farm data management across the whole herd",
+                        "Cross-platform mobile app for iOS and Android"
+                    ]
+                }
             }
         }
+    },
+    "project_detail": {
+        "back": "Back to projects",
+        "overview": "Overview",
+        "features": "Key features",
+        "visit_website": "Visit website"
     },
     "skills": {
         "heading": "Skills",

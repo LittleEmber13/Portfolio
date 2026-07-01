@@ -1,9 +1,9 @@
 import prefab from "../assets/prefab.jpg";
 import { motion } from "framer-motion";
 import { useTranslation } from 'react-i18next';
-import github from "../assets/icons/github.png";
+import { Link } from "react-router-dom";
 
-export default function Project({ name, description, technologies, openSource, image, githubUrl }) {
+export default function Project({ slug, name, description, technologies, openSource, image, githubUrl }) {
     const { t } = useTranslation();
     return (
         <motion.div className="flex flex-col w-full text-start !p-0 card break-inside-avoid mb-12"
@@ -32,7 +32,7 @@ export default function Project({ name, description, technologies, openSource, i
                 </div>
                 <br />
                 <p className="text-[var(--color-body)]">{description}</p>
-                <div className="pb-4">
+                <div className="pb-4 flex items-center gap-4">
                     {githubUrl && (
                         <a
                             href={githubUrl}
@@ -43,16 +43,25 @@ export default function Project({ name, description, technologies, openSource, i
                             {t('projects.source_code')}
                         </a>
                     )}
+                    {slug && (
+                        <Link
+                            to={`/project/${slug}`}
+                            className="inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-medium bg-gradient-to-br from-[var(--color-primary-light)] via-[var(--color-primary)] to-[var(--color-primary)] text-[var(--color-background)] hover:brightness-110 transition"
+                        >
+                            {t('projects.view_more')}
+                        </Link>
+                    )}
                 </div>
                 <div className="flex items-center gap-[4px]">
                     {technologies.map((tech) => (
                         <motion.div
+                            key={tech}
                             initial={{ scale: 1 }}
                             whileHover={{
                                 scale: 1.025,
                                 transition: { duration: 0.1 },
                             }} >
-                            <div key={tech} className="icon-button w-[24px] h-[24px]">
+                            <div className="icon-button w-[24px] h-[24px]">
                                 <img
                                     src={tech}
                                     alt={name}

@@ -34,30 +34,90 @@
     "description": "Aquí hay algunos de los proyectos en los que he trabajado, incluyendo proyectos personales y profesionales.",
     "see_more": "Puedes ver más sobre mi trabajo en mi",
     "github": "GitHub",
-    "source_code": "Código fuente"
+    "source_code": "Código fuente",
+    "view_more": "Ver más"
     ,
     "items": {
       "keepassux": {
         "name": "KeepassUX",
-        "description": "Gestor de contraseñas construido usando la librería de código abierto KeePass"
+        "description": "Gestor de contraseñas construido usando la librería de código abierto KeePass",
+        "detail": {
+          "overview": "KeepassUX es una app móvil hecha con Flutter que lleva el ecosistema de gestión de contraseñas de KeePass a una interfaz moderna y cuidada. Trabaja directamente con el formato KDBX que usa KeePass, por lo que las bases de datos existentes se pueden abrir y gestionar sin cambiar de ecosistema, manteniendo la seguridad como prioridad.",
+          "features": [
+            "Abrir, crear y gestionar bases de datos de contraseñas en formato KDBX",
+            "Gestión completa de entradas y grupos con reorganización mediante arrastrar y soltar",
+            "Papelera de reciclaje con borrado suave, restauración y borrado permanente",
+            "Desbloqueo biométrico y almacenamiento local cifrado",
+            "Generador de contraseñas integrado con análisis de fortaleza",
+            "Bloqueo de capturas de pantalla para mayor privacidad",
+            "Temas claro y oscuro, con localización en inglés y español"
+          ]
+        }
       },
       "portfolio": {
         "name": "Portfolio",
-        "description": "El portfolio actual. Puedes explorar el código con más detalle aquí"
+        "description": "El portfolio actual. Puedes explorar el código con más detalle aquí",
+        "detail": {
+          "overview": "Este mismo portfolio, construido para presentar mi trabajo con una interfaz moderna y animada. Es un sitio de una sola página totalmente responsivo, con transiciones suaves entre secciones, un fondo animado de estrellas y soporte para inglés y español.",
+          "features": [
+            "Secciones y transiciones animadas con Framer Motion",
+            "Diseño totalmente responsivo para móvil y escritorio",
+            "Localización en inglés y español con i18next",
+            "Formulario de contacto integrado con EmailJS",
+            "Arquitectura basada en componentes construida con React y Tailwind CSS"
+          ]
+        }
       },
       "ugc_database": {
         "name": "UGC Database",
-        "description": "Plataforma que ayuda a agencias a encontrar y contratar creadores de contenido para publicidad mediante búsquedas y filtros avanzados."
+        "description": "Plataforma que ayuda a agencias a encontrar y contratar creadores de contenido para publicidad mediante búsquedas y filtros avanzados.",
+        "detail": {
+          "overview": "Una plataforma interna construida para que agencias de publicidad puedan descubrir, evaluar y contratar creadores de contenido generado por usuarios para sus campañas. Centraliza en una única base de datos consultable un proceso que de otro modo estaría disperso entre hojas de cálculo y redes sociales.",
+          "features": [
+            "Búsqueda avanzada de creadores con filtros por nicho, ubicación y engagement",
+            "Base de datos centralizada de perfiles de creadores",
+            "Gestión de campañas y briefs de contenido",
+            "Flujo de mensajería y colaboración entre agencias y creadores",
+            "Panel de administración con analíticas de uso"
+          ]
+        }
       },
       "berrly": {
         "name": "Berrly",
-        "description": "Sistema de gestión para clubes, asociaciones y fundaciones, incluyendo organización de eventos y gestión de entradas"
+        "description": "Sistema de gestión para clubes, asociaciones y fundaciones, incluyendo organización de eventos y gestión de entradas",
+        "detail": {
+          "overview": "Berrly es una plataforma de gestión en la nube usada por clubes, asociaciones y fundaciones para llevar su día a día. La usan más de 500.000 personas cada día, combinando herramientas de tipo CRM y ERP para la gestión de socios, comunicación, cobros y eventos. Formé parte del desarrollo de la app móvil que permite a los socios estar conectados desde el móvil.",
+          "features": [
+            "Base de datos de socios conforme al RGPD con etiquetado y segmentación inteligente",
+            "Organización de eventos con control de asistencia en tiempo real (Berrly Scan)",
+            "Comunicaciones masivas por email, SMS y notificaciones push",
+            "Cobros recurrentes con generación de ficheros SEPA para el banco",
+            "App móvil para socios con carné de socio digital",
+            "API abierta para integraciones con terceros"
+          ]
+        }
       },
       "bovidata": {
         "name": "Bovidata",
-        "description": "Sistema de gestión ganadera con funciones para seguimiento de salud, gestión de inventario, control de gastos y más"
+        "description": "Sistema de gestión ganadera con funciones para seguimiento de salud, gestión de inventario, control de gastos y más",
+        "detail": {
+          "overview": "Bovidata aplica ciencia de datos a la ganadería, ofreciendo a los ganaderos una forma práctica de gestionar su rebaño desde una app móvil. Está disponible en iOS y Android y se usa para mantener registros detallados y centralizados que de otro modo estarían repartidos en cuadernos y hojas de cálculo.",
+          "features": [
+            "Registro de animales con edad, peso, raza e historial de salud",
+            "Programación de vacunas y tratamientos con recordatorios",
+            "Estadísticas y gráficas en tiempo real de peso y crecimiento",
+            "Gestión centralizada de los datos de toda la explotación",
+            "App móvil multiplataforma para iOS y Android"
+          ]
+        }
       }
     }
+  },
+  "project_detail": {
+    "back": "Volver a proyectos",
+    "overview": "Resumen",
+    "features": "Características principales",
+    "visit_website": "Visitar sitio web"
   },
   "skills": {
     "heading": "Habilidades",

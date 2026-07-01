@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 
 export default function NavBar() {
     const [show, setShow] = useState(false);
@@ -24,10 +25,10 @@ export default function NavBar() {
             transition={{ duration: 0.3 }}
             className="nav-bar hidden md:flex p-2 gap-4 !rounded-full px-8 fixed z-10 mt-4"
         >
-            <a href="#welcome" className="cursor-pointer">{t('nav.welcome')}</a>
-            <a href="#projects" className="cursor-pointer">{t('nav.projects')}</a>
-            <a href="#skills" className="cursor-pointer">{t('nav.skills')}</a>
-            <a href="#contact" className="cursor-pointer">{t('nav.contact')}</a>
+            <Link to="/#welcome" className="cursor-pointer">{t('nav.welcome')}</Link>
+            <Link to="/#projects" className="cursor-pointer">{t('nav.projects')}</Link>
+            <Link to="/#skills" className="cursor-pointer">{t('nav.skills')}</Link>
+            <Link to="/#contact" className="cursor-pointer">{t('nav.contact')}</Link>
             <div className="ml-2">
                 <select
                     value={i18n.language}
@@ -81,10 +82,10 @@ export default function NavBar() {
                         className="md:hidden fixed top-16 left-4 z-30 bg-[var(--color-surface)] rounded-lg p-4 shadow w-56"
                     >
                         <div className="flex flex-col gap-3">
-                            <a href="#welcome" onClick={() => setIsOpen(false)} className="cursor-pointer">{t('nav.welcome')}</a>
-                            <a href="#projects" onClick={() => setIsOpen(false)} className="cursor-pointer">{t('nav.projects')}</a>
-                            <a href="#skills" onClick={() => setIsOpen(false)} className="cursor-pointer">{t('nav.skills')}</a>
-                            <a href="#contact" onClick={() => setIsOpen(false)} className="cursor-pointer">{t('nav.contact')}</a>
+                            <Link to="/#welcome" onClick={() => setIsOpen(false)} className="cursor-pointer">{t('nav.welcome')}</Link>
+                            <Link to="/#projects" onClick={() => setIsOpen(false)} className="cursor-pointer">{t('nav.projects')}</Link>
+                            <Link to="/#skills" onClick={() => setIsOpen(false)} className="cursor-pointer">{t('nav.skills')}</Link>
+                            <Link to="/#contact" onClick={() => setIsOpen(false)} className="cursor-pointer">{t('nav.contact')}</Link>
                             <div className="pt-2 border-t border-[rgba(255,255,255,0.06)]">
                                 <select
                                     value={i18n.language}

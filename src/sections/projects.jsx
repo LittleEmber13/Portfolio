@@ -1,23 +1,11 @@
 import Project from "../components/project";
-import typescript from "../assets/icons/typescript.png";
-import tailwind from "../assets/icons/tailwind.png";
-import framerMotion from "../assets/icons/framer-motion.webp";
-import flutter from "../assets/icons/flutter.png";
-import ugcdatabase from "../assets/projects/ugcdatabase.png";
-import berrly from "../assets/projects/berrly.png";
-import bovidata from "../assets/projects/bovidata.png";
-import keepassux from "../assets/projects/keepassux.png";
-import portfolio from "../assets/projects/portfolio.png";
-import nextjs from "../assets/icons/nextjs.png";
-import javascript from "../assets/icons/javascript.png";
-import firebase from "../assets/icons/firebase.png";
-import react from "../assets/icons/react.png";
 import { useRef } from "react";
 import { useInView } from "framer-motion";
 import { motion } from "framer-motion";
 import { GITHUB_LINK } from '../constants.jsx';
 import { useTranslation } from 'react-i18next';
 import SectionHeader from "../components/section_header";
+import { projects } from "../data/projects";
 
 export default function Projects({ id }) {
     const ref = useRef(null);
@@ -65,78 +53,25 @@ export default function Projects({ id }) {
                                 </p>
                             </motion.div>
                         </div>
-                        <motion.div
-                            ref={ref}
-                            initial={{ opacity: 0, scale: 0 }}
-                            animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                            transition={{ duration: 1, ease: "easeOut", delay: 1.2 }}
-                            className="w-full pt-8">
-                            <Project
-                                name={t('projects.items.keepassux.name')}
-                                openSource={true}
-                                image={keepassux}
-                                description={t('projects.items.keepassux.description')}
-                                technologies={[flutter]}
-                                githubUrl={"https://github.com/LittleEmber13/keepassUX"}
-                            />
-                        </motion.div>
-                        <motion.div
-                            ref={ref}
-                            initial={{ opacity: 0, scale: 0 }}
-                            animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                            transition={{ duration: 1, ease: "easeOut", delay: 1.6 }}
-                            className="w-full pt-8">
-                            <Project
-                                name={t('projects.items.portfolio.name')}
-                                openSource={true}
-                                image={portfolio}
-                                description={t('projects.items.portfolio.description')}
-                                technologies={[react, javascript, framerMotion, tailwind]}
-                                githubUrl={"https://github.com/LittleEmber13/portfolio-2025"}
-                            />
-                        </motion.div>
-                        <motion.div
-                            ref={ref}
-                            initial={{ opacity: 0, scale: 0 }}
-                            animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                            transition={{ duration: 1, ease: "easeOut", delay: 1 }}
-                            className="w-full pt-8">
-                            <Project
-                                name={t('projects.items.ugc_database.name')}
-                                openSource={false}
-                                image={ugcdatabase}
-                                description={t('projects.items.ugc_database.description')}
-                                technologies={[typescript, nextjs, tailwind]}
-                            />
-                        </motion.div>
-                        <motion.div
-                            ref={ref}
-                            initial={{ opacity: 0, scale: 0 }}
-                            animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                            transition={{ duration: 1, ease: "easeOut", delay: 1.4 }}
-                            className="w-full pt-8">
-                            <Project
-                                name={t('projects.items.berrly.name')}
-                                openSource={false}
-                                image={berrly}
-                                description={t('projects.items.berrly.description')}
-                                technologies={[flutter]}
-                            />
-                        </motion.div>
-                        <motion.div
-                            ref={ref}
-                            initial={{ opacity: 0, scale: 0 }}
-                            animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                            transition={{ duration: 1, ease: "easeOut", delay: 1.8 }}
-                            className="w-full pt-8">
-                            <Project
-                                name={t('projects.items.bovidata.name')}
-                                openSource={false}
-                                image={bovidata}
-                                description={t('projects.items.bovidata.description')}
-                                technologies={[flutter, firebase]}
-                            />
-                        </motion.div>
+                        {projects.map((project, index) => (
+                            <motion.div
+                                key={project.slug}
+                                ref={ref}
+                                initial={{ opacity: 0, scale: 0 }}
+                                animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                                transition={{ duration: 1, ease: "easeOut", delay: 1 + index * 0.2 }}
+                                className="w-full pt-8">
+                                <Project
+                                    slug={project.slug}
+                                    name={t(`projects.items.${project.slug}.name`)}
+                                    openSource={project.openSource}
+                                    image={project.image}
+                                    description={t(`projects.items.${project.slug}.description`)}
+                                    technologies={project.technologies}
+                                    githubUrl={project.githubUrl}
+                                />
+                            </motion.div>
+                        ))}
                     </div>
                 </div>
             </motion.div>
