@@ -2,9 +2,10 @@ import { useState, useEffect, useRef } from "react";
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
+import profileImage from "../assets/profile_image.png";
 
 export default function NavBar() {
-    const [show, setShow] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const btnRef = useRef(null);
     const navRef = useRef(null);
@@ -12,36 +13,11 @@ export default function NavBar() {
     const { t, i18n } = useTranslation();
 
     useEffect(() => {
-        const handleScroll = () => setShow(window.scrollY > 200);
+        const handleScroll = () => setScrolled(window.scrollY > 80);
+        handleScroll();
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
-
-    const desktopNav = show ? (
-        <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
-            className="nav-bar hidden md:flex p-2 gap-4 !rounded-full px-8 fixed z-10 mt-4"
-        >
-            <Link to="/#welcome" className="cursor-pointer">{t('nav.welcome')}</Link>
-            <Link to="/#projects" className="cursor-pointer">{t('nav.projects')}</Link>
-            <Link to="/#skills" className="cursor-pointer">{t('nav.skills')}</Link>
-            <Link to="/#contact" className="cursor-pointer">{t('nav.contact')}</Link>
-            <div className="ml-2">
-                <select
-                    value={i18n.language}
-                    onChange={(e) => i18n.changeLanguage(e.target.value)}
-                    aria-label={t('nav.language') || 'Language'}
-                    className="bg-transparent text-sm p-1 rounded"
-                >
-                    <option value="en">EN</option>
-                    <option value="es">ES</option>
-                </select>
-            </div>
-        </motion.div>
-    ) : null;
 
     useEffect(() => {
         const handleClickOutside = (e) => {
@@ -59,34 +35,100 @@ export default function NavBar() {
         return () => document.removeEventListener('mousedown', handleClickOutside);
     }, [isOpen]);
 
+    const navLinks = [
+        { to: '/#welcome', label: t('nav.welcome') },
+        { to: '/#projects', label: t('nav.projects') },
+        { to: '/#skills', label: t('nav.skills') },
+        { to: '/#contact', label: t('nav.contact') },
+    ];
+
+    const textColor = scrolled ? '#151515' : '#ffffff';
+    const colorTransition = { transition: 'color 0.35s ease-in-out' };
+
     return (
-        <>
-            <button
-                ref={btnRef}
-                aria-label="Toggle menu"
-                onClick={() => setIsOpen(prev => !prev)}
-                className="md:hidden fixed top-4 left-4 z-30 bg-[var(--color-surface)] p-2 rounded-full shadow nav-bar"
-            >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-            </button>
+        <header
+            style={{
+                paddingTop: scrolled ? '1.1rem' : '0.6rem',
+                paddingBottom: scrolled ? '1.1rem' : '0.6rem',
+                backgroundColor: scrolled ? '#ffffff' : 'rgba(255,255,255,0)',
+                boxShadow: scrolled ? '0 4px 24px rgba(0,0,0,0.18)' : '0 0 0 rgba(0,0,0,0)',
+                transition: 'padding 0.35s ease-in-out, background-color 0.35s ease-in-out, box-shadow 0.35s ease-in-out',
+            }}
+            className="fixed top-0 left-0 w-full z-30"
+        >
+            <div className="max-w-[1500px] mx-auto flex items-center justify-between px-4 sm:px-8 md:px-16">
+                <Link to="/#welcome" className="flex items-center gap-3 cursor-pointer">
+                    <img
+                        src={profileImage}
+                        alt="Daniel Duran"
+                        style={{
+                            width: scrolled ? 52 : 40,
+                            height: scrolled ? 52 : 40,
+                            borderColor: scrolled ? 'var(--color-primary)' : 'rgba(255,255,255,0.5)',
+                            transition: 'width 0.35s ease-in-out, height 0.35s ease-in-out, border-color 0.35s ease-in-out',
+                        }}
+                        className="rounded-full object-cover border-2"
+                    />
+                    <span style={{ color: textColor, ...colorTransition }} className="hidden sm:inline font-semibold">
+                        Daniel Duran
+                    </span>
+                </Link>
+
+                <nav className="hidden md:flex items-center gap-6">
+                    {navLinks.map((link) => (
+                        <div key={link.to} style={{ color: textColor, ...colorTransition }}>
+                            <Link to={link.to} className="cursor-pointer font-medium hover:opacity-70 transition-opacity">
+                                {link.label}
+                            </Link>
+                        </div>
+                    ))}
+                    <select
+                        value={i18n.language}
+                        onChange={(e) => i18n.changeLanguage(e.target.value)}
+                        aria-label={t('nav.language') || 'Language'}
+                        style={{ color: textColor, ...colorTransition }}
+                        className="bg-transparent text-sm p-1 rounded ml-2"
+                    >
+                        <option value="en" className="text-[#151515]">EN</option>
+                        <option value="es" className="text-[#151515]">ES</option>
+                    </select>
+                </nav>
+
+                <button
+                    ref={btnRef}
+                    aria-label="Toggle menu"
+                    onClick={() => setIsOpen((prev) => !prev)}
+                    style={{ color: textColor, ...colorTransition }}
+                    className="md:hidden p-2"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+
             <AnimatePresence>
                 {isOpen && (
                     <motion.nav
                         ref={navRef}
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -20 }}
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
                         transition={{ duration: 0.18 }}
-                        className="md:hidden fixed top-16 left-4 z-30 bg-[var(--color-surface)] rounded-lg p-4 shadow w-56"
+                        className="md:hidden mx-4 mt-3 rounded-2xl p-4 bg-white shadow-lg"
                     >
                         <div className="flex flex-col gap-3">
-                            <Link to="/#welcome" onClick={() => setIsOpen(false)} className="cursor-pointer">{t('nav.welcome')}</Link>
-                            <Link to="/#projects" onClick={() => setIsOpen(false)} className="cursor-pointer">{t('nav.projects')}</Link>
-                            <Link to="/#skills" onClick={() => setIsOpen(false)} className="cursor-pointer">{t('nav.skills')}</Link>
-                            <Link to="/#contact" onClick={() => setIsOpen(false)} className="cursor-pointer">{t('nav.contact')}</Link>
-                            <div className="pt-2 border-t border-[rgba(255,255,255,0.06)]">
+                            {navLinks.map((link) => (
+                                <Link
+                                    key={link.to}
+                                    to={link.to}
+                                    onClick={() => setIsOpen(false)}
+                                    className="cursor-pointer text-[#151515] font-medium"
+                                >
+                                    {link.label}
+                                </Link>
+                            ))}
+                            <div className="pt-2 border-t border-black/10">
                                 <select
                                     value={i18n.language}
                                     onChange={(e) => {
@@ -94,7 +136,7 @@ export default function NavBar() {
                                         setIsOpen(false);
                                     }}
                                     aria-label={t('nav.language') || 'Language'}
-                                    className="bg-transparent text-sm p-1 rounded"
+                                    className="bg-transparent text-sm p-1 rounded text-[#151515]"
                                 >
                                     <option value="en">EN</option>
                                     <option value="es">ES</option>
@@ -104,9 +146,6 @@ export default function NavBar() {
                     </motion.nav>
                 )}
             </AnimatePresence>
-            <AnimatePresence>
-                {desktopNav}
-            </AnimatePresence>
-        </>
+        </header>
     );
 }
