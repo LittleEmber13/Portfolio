@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export default function Skill({ name, imgSrc, size }) {
     return (
-        <div class="flex flex-col items-center gap-2 w-[60px]">
+        <div className="flex flex-col items-center gap-2 w-[60px]">
             <motion.div
                 initial={{ scale: 1 }}
                 whileHover={{

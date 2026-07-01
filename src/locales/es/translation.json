@@ -12,6 +12,22 @@
     "p1": "Cuento con 3 años de experiencia en desarrollo móvil con Flutter y web con React/Next.js, participando en varios proyectos que me han ayudado a crecer mucho como desarrollador, aprendiendo a escribir mejor código y a resolver problemas reales.",
     "p2": "Escribo código limpio, escalable y fácil de mantener."
   },
+  "home": {
+    "heading": "Resumen",
+    "name": "Daniel",
+    "featured_project": "Proyecto destacado",
+    "stats_label": "Proyectos desplegados",
+    "download_cv": "Descargar CV",
+    "tech_stack": "Stack tecnológico",
+    "experience_label": "Años de experiencia",
+    "languages_heading": "Idiomas",
+    "languages": {
+      "english": "Inglés",
+      "spanish": "Español",
+      "catalan": "Catalán"
+    },
+    "about_heading": "Sobre mí"
+  },
   "projects": {
     "heading": "Proyectos",
     "subheading": "Proyectos en los que he trabajado",

@@ -2,6 +2,7 @@ import { StarsBackground } from './components/animate-ui/components/backgrounds/
 import NavBar from './components/nav_bar';
 import Footer from './components/footer';
 import Contact from './sections/contact';
+import Home from './sections/home';
 import Projects from './sections/projects';
 import Skills from './sections/skills';
 import Welcome from './sections/welcome';
@@ -23,6 +24,7 @@ function App() {
             <Welcome id='welcome' />
           </div>
           <div className="flex flex-col gap-16">
+            <Home id='home' />
             <Projects id='projects' />
             <Skills id='skills' />
             <Contact id='contact' />

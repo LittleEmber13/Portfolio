@@ -12,6 +12,22 @@
         "p1": "I have 3 years of experience in mobile development with Flutter and web development with React/Next.js, participating in several projects that have helped me grow a lot as a developer, learning to write better code and to solve real problems.",
         "p2": "I write clean, scalable, and easy to maintain code."
     },
+    "home": {
+        "heading": "Overview",
+        "name": "Daniel",
+        "featured_project": "Featured Project",
+        "stats_label": "Deployed Projects",
+        "download_cv": "Download CV",
+        "tech_stack": "Tech Stack",
+        "experience_label": "Years of Experience",
+        "languages_heading": "Languages",
+        "languages": {
+            "english": "English",
+            "spanish": "Spanish",
+            "catalan": "Catalan"
+        },
+        "about_heading": "About Me"
+    },
     "projects": {
         "heading": "Projects",
         "subheading": "Projects I've worked on",
