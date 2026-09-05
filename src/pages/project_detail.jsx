@@ -1,8 +1,7 @@
 import { Link, useParams, Navigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { ArrowLeft, ExternalLink } from "lucide-react";
-import SectionHeader from "../components/section_header";
+import { ExternalLink } from "lucide-react";
 import { getProjectBySlug } from "../data/projects";
 
 export default function ProjectDetail() {
@@ -22,15 +21,7 @@ export default function ProjectDetail() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="w-full pt-8 pb-16">
-            <Link
-                to="/#projects"
-                className="inline-flex items-center gap-2 text-[var(--color-primary)] hover:underline mb-6 px-8 sm:px-0"
-            >
-                <ArrowLeft size={18} />
-                {t('project_detail.back')}
-            </Link>
-            <SectionHeader title={'<' + t(`projects.items.${slug}.name`) + '/>'} />
+            className="w-full pt-24 pb-16">
             <div className="solid-background p-8 w-full flex flex-col gap-8">
                 <img
                     src={project.image}
@@ -81,6 +72,14 @@ export default function ProjectDetail() {
                             <ExternalLink size={16} />
                             {t('projects.source_code')}
                         </a>
+                    )}
+                    {slug === "keepassux" && (
+                        <Link
+                            to={`/project/${slug}/privacy`}
+                            className="inline-flex items-center gap-2 text-[var(--color-primary)] hover:underline"
+                        >
+                            {t('projects.privacy_policy')}
+                        </Link>
                     )}
                     {project.websiteUrl && (
                         <a

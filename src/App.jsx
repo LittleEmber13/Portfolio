@@ -9,6 +9,7 @@ import Projects from './sections/projects';
 import Skills from './sections/skills';
 import Welcome from './sections/welcome';
 import ProjectDetail from './pages/project_detail';
+import PrivacyPolicy from './pages/privacy_policy';
 
 function ScrollToHash() {
   const location = useLocation();
@@ -60,6 +61,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/project/:slug" element={<ProjectDetail />} />
+            <Route path="/project/:slug/privacy" element={<PrivacyPolicy />} />
           </Routes>
           <Footer />
         </div>
