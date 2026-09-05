@@ -8,7 +8,7 @@ import github from "../assets/icons/github.png";
 import linkedin from "../assets/icons/linkedin.png";
 import mail from "../assets/icons/mail.png";
 import bovidata from "../assets/projects/bovidata.png";
-import prefab from "../assets/prefab.jpg";
+import profilePicture from "../assets/other/image.jpg";
 import profileImage from "../assets/profile_image.png";
 import flutter from "../assets/icons/flutter.png";
 import firebase from "../assets/icons/firebase.png";
@@ -82,6 +82,7 @@ export default function Home({ id }) {
                 initial={{ opacity: 0 }}
                 animate={isInView ? { opacity: 1 } : {}}
                 transition={{ duration: 0.8, ease: "easeOut" }}
+                className="pt-8"
             >
                 <SectionHeader title={'<' + t('home.heading') + '/>'} />
                 <div className="solid-background p-8 w-full">
@@ -181,7 +182,7 @@ export default function Home({ id }) {
                             transition={{ duration: 0.6, ease: "easeOut", delay: 0.7 }}
                             className="card !p-0 overflow-hidden col-span-12 md:col-span-3"
                         >
-                            <img src={prefab} alt="" className="w-full h-full min-h-[160px] object-cover" />
+                            <img src={profilePicture} alt="" className="w-full h-full min-h-[160px] object-cover" />
                         </motion.div>
 
                         <motion.div

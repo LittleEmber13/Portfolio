@@ -7,9 +7,8 @@ import Contact from './sections/contact';
 import Home from './sections/home';
 import Projects from './sections/projects';
 import Skills from './sections/skills';
-import Welcome from './sections/welcome';
 import ProjectDetail from './pages/project_detail';
-import PrivacyPolicy from './pages/privacy_policy';
+import Policy from './pages/policy';
 
 function ScrollToHash() {
   const location = useLocation();
@@ -30,17 +29,13 @@ function ScrollToHash() {
 
 function HomePage() {
   return (
-    <>
-      <div className="flex flex-col">
-        <Welcome id='welcome' />
-      </div>
-      <div className="flex flex-col gap-16">
+      <div className="flex flex-col gap-16 pt-16">
         <Home id='home' />
         <Projects id='projects' />
         <Skills id='skills' />
         <Contact id='contact' />
       </div>
-    </>
+    
   );
 }
 
@@ -61,7 +56,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/project/:slug" element={<ProjectDetail />} />
-            <Route path="/project/:slug/privacy" element={<PrivacyPolicy />} />
+            <Route path="/project/:slug/privacy" element={<Policy />} />
           </Routes>
           <Footer />
         </div>

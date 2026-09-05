@@ -36,7 +36,7 @@ export default function NavBar() {
     }, [isOpen]);
 
     const navLinks = [
-        { to: '/#welcome', label: t('nav.welcome') },
+        { to: '/#home', label: t('nav.welcome') },
         { to: '/#projects', label: t('nav.projects') },
         { to: '/#skills', label: t('nav.skills') },
         { to: '/#contact', label: t('nav.contact') },
@@ -57,7 +57,7 @@ export default function NavBar() {
             className="fixed top-0 left-0 w-full z-30"
         >
             <div className="max-w-[1500px] mx-auto flex items-center justify-between px-4 sm:px-8 md:px-16">
-                <Link to="/#welcome" className="flex items-center gap-3 cursor-pointer">
+                <Link to="/#home" className="flex items-center gap-3 cursor-pointer">
                     <img
                         src={profileImage}
                         alt="Daniel Duran"

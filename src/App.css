@@ -17,8 +17,8 @@
 
 .gradient-primary-text {
   background: linear-gradient(135deg,
-      var(--color-secondary) 0%,
-      var(--color-primary) 90%,
+      var(--color-primary-light) 0%,
+      var(--color-primary) 50%,
       var(--color-primary) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -92,6 +92,10 @@ body {
 
 html {
   scroll-behavior: smooth;
+}
+
+[id] {
+  scroll-margin-top: 6rem;
 }
 
 .title-div {
