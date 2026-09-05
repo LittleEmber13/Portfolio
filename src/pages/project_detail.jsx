@@ -1,4 +1,4 @@
-import { Link, useParams, Navigate } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { ExternalLink } from "lucide-react";
@@ -74,12 +74,14 @@ export default function ProjectDetail() {
                         </a>
                     )}
                     {slug === "keepassux" && (
-                        <Link
-                            to={`/project/${slug}/privacy`}
+                        <a
+                            href={`/project/${slug}/privacy`}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 text-[var(--color-primary)] hover:underline"
                         >
                             {t('projects.privacy_policy')}
-                        </Link>
+                        </a>
                     )}
                     {project.websiteUrl && (
                         <a

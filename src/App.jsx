@@ -40,6 +40,9 @@ function HomePage() {
 }
 
 function App() {
+  const location = useLocation();
+  const isPrivacy = location.pathname.endsWith('/privacy');
+
   return (
     <>
       <StarsBackground
@@ -51,7 +54,7 @@ function App() {
       <div className='w-full flex justify-center items-center flex-col'>
         <div className="max-w-[1500px] px-0 sm:px-8 md:px-16">
           <div className='w-full flex items-center flex-col'>
-            <NavBar />
+            {!isPrivacy && <NavBar />}
           </div>
           <Routes>
             <Route path="/" element={<HomePage />} />

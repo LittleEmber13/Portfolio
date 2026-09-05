@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from "react";
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-import profileImage from "../assets/profile_image.png";
 
 export default function NavBar() {
     const [scrolled, setScrolled] = useState(false);
@@ -58,17 +57,19 @@ export default function NavBar() {
         >
             <div className="max-w-[1500px] mx-auto flex items-center justify-between px-4 sm:px-8 md:px-16">
                 <Link to="/#home" className="flex items-center gap-3 cursor-pointer">
-                    <img
-                        src={profileImage}
-                        alt="Daniel Duran"
+                    <span
                         style={{
                             width: scrolled ? 52 : 40,
                             height: scrolled ? 52 : 40,
                             borderColor: scrolled ? 'var(--color-primary)' : 'rgba(255,255,255,0.5)',
-                            transition: 'width 0.35s ease-in-out, height 0.35s ease-in-out, border-color 0.35s ease-in-out',
+                            color: textColor,
+                            fontSize: scrolled ? 26 : 20,
+                            transition: 'width 0.35s ease-in-out, height 0.35s ease-in-out, border-color 0.35s ease-in-out, font-size 0.35s ease-in-out, color 0.35s ease-in-out',
                         }}
-                        className="rounded-full object-cover border-2"
-                    />
+                        className="rounded-full border-2 flex items-center justify-center font-bold select-none"
+                    >
+                        D
+                    </span>
                     <span style={{ color: textColor, ...colorTransition }} className="hidden sm:inline font-semibold">
                         Daniel Duran
                     </span>
