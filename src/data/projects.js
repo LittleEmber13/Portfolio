@@ -16,9 +16,11 @@ export const projects = [
     {
         slug: "keepassux",
         image: keepassux,
+        featured: true,
         openSource: true,
         technologies: [flutter],
         githubUrl: "https://github.com/LittleEmber13/keepassUX",
+        playStoreUrl: "https://play.google.com/store/apps/details?id=com.cinderfall.keepassux",
     },
     {
         slug: "portfolio",
@@ -51,4 +53,8 @@ export const projects = [
 
 export function getProjectBySlug(slug) {
     return projects.find((project) => project.slug === slug);
+}
+
+export function getFeaturedProject() {
+    return projects.find((project) => project.featured) ?? projects[0];
 }

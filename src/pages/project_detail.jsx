@@ -3,10 +3,17 @@ import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { ExternalLink } from "lucide-react";
 import { getProjectBySlug } from "../data/projects";
+import googlePlayBadgeEn from "../assets/icons/google-play-badge-en.png";
+import googlePlayBadgeEs from "../assets/icons/google-play-badge-es.png";
+
+const GOOGLE_PLAY_BADGES = {
+    en: googlePlayBadgeEn,
+    es: googlePlayBadgeEs,
+};
 
 export default function ProjectDetail() {
     const { slug } = useParams();
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     const project = getProjectBySlug(slug);
 
     if (!project) {
@@ -62,6 +69,21 @@ export default function ProjectDetail() {
                 )}
 
                 <div className="flex items-center gap-6 flex-wrap pt-2">
+                    {project.playStoreUrl && (
+                        <a
+                            href={project.playStoreUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={t('projects.get_it_on_google_play')}
+                            className="inline-flex items-center rounded-lg transition hover:opacity-90"
+                        >
+                            <img
+                                src={GOOGLE_PLAY_BADGES[i18n.language] ?? GOOGLE_PLAY_BADGES.en}
+                                alt={t('projects.get_it_on_google_play')}
+                                className="h-[48px] w-auto"
+                            />
+                        </a>
+                    )}
                     {project.githubUrl && (
                         <a
                             href={project.githubUrl}

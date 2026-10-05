@@ -7,7 +7,6 @@ import Marquee from "../components/marquee";
 import github from "../assets/icons/github.png";
 import linkedin from "../assets/icons/linkedin.png";
 import mail from "../assets/icons/mail.png";
-import bovidata from "../assets/projects/bovidata.png";
 import profilePicture from "../assets/other/image.jpg";
 import profileImage from "../assets/profile_image.png";
 import flutter from "../assets/icons/flutter.png";
@@ -33,6 +32,7 @@ import rest from "../assets/icons/rest.png";
 import responsive from "../assets/icons/idea.png";
 import figma from "../assets/icons/figma.png";
 import docker from "../assets/icons/docker.svg";
+import { getFeaturedProject } from "../data/projects";
 import { GITHUB_LINK, LINKEDIN_LINK } from '../constants.jsx';
 
 const DEPLOYED_PROJECTS_COUNT = 5;
@@ -74,6 +74,7 @@ export default function Home({ id }) {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-100px" });
     const { t } = useTranslation();
+    const featuredProject = getFeaturedProject();
 
     return (
         <section id={id} className="w-full">
@@ -110,25 +111,24 @@ export default function Home({ id }) {
                             className="card !p-0 overflow-hidden col-span-12 md:col-span-6 flex flex-col"
                         >
                             <img
-                                src={bovidata}
-                                alt={t('projects.items.bovidata.name')}
+                                src={featuredProject.image}
+                                alt={t(`projects.items.${featuredProject.slug}.name`)}
                                 className="w-full h-40 object-cover block rounded-t-lg"
                             />
                             <div className="p-[16px] text-start">
                                 <div className="flex items-center gap-2">
-                                    <h4>{t('projects.items.bovidata.name')}</h4>
+                                    <h4>{t(`projects.items.${featuredProject.slug}.name`)}</h4>
                                     <div className="inline-flex items-center gap-2 rounded-full border border-[var(--color-primary)] px-2 text-xs font-medium text-[var(--color-primary)]">
                                         <span>{t('home.featured_project')}</span>
                                     </div>
                                 </div>
-                                <p className="text-[var(--color-body)] mt-2">{t('projects.items.bovidata.description')}</p>
+                                <p className="text-[var(--color-body)] mt-2">{t(`projects.items.${featuredProject.slug}.description`)}</p>
                                 <div className="flex items-center gap-[4px] mt-4">
-                                    <div className="icon-button w-[24px] h-[24px]">
-                                        <img src={flutter} alt="Flutter" className="w-1/2 h-1/2 object-contain" />
-                                    </div>
-                                    <div className="icon-button w-[24px] h-[24px]">
-                                        <img src={firebase} alt="Firebase" className="w-1/2 h-1/2 object-contain" />
-                                    </div>
+                                    {featuredProject.technologies.map((tech, index) => (
+                                        <div key={index} className="icon-button w-[24px] h-[24px]">
+                                            <img src={tech} alt="" className="w-1/2 h-1/2 object-contain" />
+                                        </div>
+                                    ))}
                                 </div>
                             </div>
                         </motion.div>
