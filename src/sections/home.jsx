@@ -115,7 +115,7 @@ export default function Home({ id }) {
                                 <img
                                     src={featuredProject.image}
                                     alt={t(`projects.items.${featuredProject.slug}.name`)}
-                                    className="absolute inset-0 w-full h-full object-cover object-left"
+                                    className="absolute inset-0 w-full h-full object-cover object-left opacity-25"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-b lg:bg-gradient-to-r from-transparent to-[color:var(--color-surface)]" />
                             </div>
